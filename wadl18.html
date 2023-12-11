@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        main {
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <h1>Simple Calculator</h1>
+
+        <label for="number1">Enter Number 1:</label>
+        <input type="number" id="number1" placeholder="Enter the first number">
+
+        <label for="number2">Enter Number 2:</label>
+        <input type="number" id="number2" placeholder="Enter the second number">
+
+        <button onclick="calculate()">Calculate</button>
+
+        <p id="result"></p>
+    </main>
+
+    <script>
+        function calculate() {
+            // Get input values
+            var number1 = parseFloat(document.getElementById('number1').value);
+            var number2 = parseFloat(document.getElementById('number2').value);
+
+            // Check if the input is valid
+            if (isNaN(number1) || isNaN(number2)) {
+                alert('Please enter valid numbers.');
+                return;
+            }
+
+            // Perform calculations
+            var sum = number1 + number2;
+            var difference = number1 - number2;
+            var product = number1 * number2;
+            var division = number1 / number2;
+
+            // Display results
+            var resultMessage = "Results:\n";
+            resultMessage += "Sum: " + sum + "\n";
+            resultMessage += "Difference: " + difference + "\n";
+            resultMessage += "Product: " + product + "\n";
+            resultMessage += "Division: " + division;
+
+            document.getElementById('result').innerText = resultMessage;
+        }
+    </script>
+
+</body>
+</html>
